@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+{% if graphs %}
+<img style="width: 1000px;" src="data:image/png;base64, {{graphs|safe}}">
+{% endif %}
+{% else  %}
+<h1>Cadastre-se para visualizar o gráfico!</h1>
+<a href="{% url 'account_login' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
+
+{% endif %}
+{% endblock %}
